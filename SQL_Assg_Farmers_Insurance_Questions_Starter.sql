@@ -99,7 +99,7 @@ use ndap;
 	
     SELECT srcStateName,SUM(TotalFarmersCovered),SUM(SumInsured) FROM farmersinsurancedata
     GROUP BY srcStateName
-    ORDER BY SUM(SumInsured) DESC;
+    ORDER BY TotalFarmersCovered DESC;
 
 
 -- ###
@@ -136,7 +136,7 @@ WHERE TotalPopulationRural > 1000000 and srcStateName = 'HIMACHAL PRADESH';
 -- ###
 -- TYPE YOUR CODE BELOW >
 select srcStateName, srcDistrictName, sum(FarmersPremiumAmount) from farmersinsurancedata
-WHERE Year_ like '%2020'
+WHERE Year_ like '%2018'
 group by srcDistrictName 
 order by sum(FarmersPremiumAmount) asc;
 
@@ -236,7 +236,8 @@ GROUP BY
 SELECT srcDistrictName,TotalPopulation FROM farmersinsurancedata
 WHERE Year_ LIKE '%2020'
 GROUP BY srcDistrictName
-ORDER BY TotalPopulation DESC;
+ORDER BY TotalPopulation DESC
+limit 5;
 
 
 
